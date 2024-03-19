@@ -7,6 +7,7 @@ __all__ = (
     "Skill",
     "card_skill_association_table",
     "Resume",
+    "Wallet",
 )
 
 from src.database import DatabaseHelper, database
@@ -16,3 +17,4 @@ from .card import Card
 from .skill import Skill
 from .card_skill_association import card_skill_association_table
 from .resume import Resume
+from .wallet import Wallet
