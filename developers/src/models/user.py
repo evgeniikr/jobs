@@ -7,6 +7,7 @@ from src.models.base import Base
 
 if TYPE_CHECKING:
     from .card import Card
+    from .wallet import Wallet
 
 
 class User(Base):
@@ -16,6 +17,10 @@ class User(Base):
     )
 
     card: Mapped["Card"] = relationship(
+        back_populates="user",
+        uselist=False,
+    )
+    wallet: Mapped["Wallet"] = relationship(
         back_populates="user",
         uselist=False,
     )
