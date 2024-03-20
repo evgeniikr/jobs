@@ -1,3 +1,5 @@
+from contextlib import asynccontextmanager
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi_pagination import add_pagination
@@ -5,10 +7,12 @@ from fastapi_pagination import add_pagination
 from src.api_v1 import router as users_router
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    yield
 
 
-
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 app.include_router(router=users_router)
 add_pagination(app)
 
