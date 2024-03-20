@@ -1,8 +1,8 @@
 """Create skill model
 
-Revision ID: 71f57acc5657
-Revises: c6e62eccb73d
-Create Date: 2024-03-19 12:12:01.526381
+Revision ID: de335948ac78
+Revises: 871c0fb8b3a1
+Create Date: 2024-03-20 21:03:25.001198
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '71f57acc5657'
-down_revision: Union[str, None] = 'c6e62eccb73d'
+revision: str = 'de335948ac78'
+down_revision: Union[str, None] = '871c0fb8b3a1'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 

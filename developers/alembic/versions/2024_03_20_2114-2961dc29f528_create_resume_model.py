@@ -1,8 +1,8 @@
 """Create resume model
 
-Revision ID: f6c26bc714ed
-Revises: fca43733bb2d
-Create Date: 2024-03-19 20:37:06.161531
+Revision ID: 2961dc29f528
+Revises: 8857b31db980
+Create Date: 2024-03-20 21:14:24.835374
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'f6c26bc714ed'
-down_revision: Union[str, None] = 'fca43733bb2d'
+revision: str = '2961dc29f528'
+down_revision: Union[str, None] = '8857b31db980'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
@@ -23,9 +23,11 @@ def upgrade() -> None:
     op.create_table('resumes',
     sa.Column('file', sa.LargeBinary(), nullable=False),
     sa.Column('total_experience', sa.Integer(), server_default='0', nullable=False),
+    sa.Column('card_id', sa.UUID(), nullable=False),
     sa.Column('id', sa.UUID(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+    sa.ForeignKeyConstraint(['card_id'], ['cards.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

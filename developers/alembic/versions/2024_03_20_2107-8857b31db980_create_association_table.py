@@ -1,8 +1,8 @@
-"""Create card_skill_association model
+"""Create association table
 
-Revision ID: fca43733bb2d
-Revises: 71f57acc5657
-Create Date: 2024-03-19 12:13:42.705927
+Revision ID: 8857b31db980
+Revises: de335948ac78
+Create Date: 2024-03-20 21:07:29.964685
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'fca43733bb2d'
-down_revision: Union[str, None] = '71f57acc5657'
+revision: str = '8857b31db980'
+down_revision: Union[str, None] = 'de335948ac78'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 

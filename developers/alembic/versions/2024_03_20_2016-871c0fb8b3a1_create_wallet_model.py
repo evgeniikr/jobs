@@ -1,8 +1,8 @@
 """Create wallet model
 
-Revision ID: f4e4af1d3af2
-Revises: f6c26bc714ed
-Create Date: 2024-03-19 20:37:59.847054
+Revision ID: 871c0fb8b3a1
+Revises: 2dfbebf7f09f
+Create Date: 2024-03-20 20:16:57.062458
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'f4e4af1d3af2'
-down_revision: Union[str, None] = 'f6c26bc714ed'
+revision: str = '871c0fb8b3a1'
+down_revision: Union[str, None] = '2dfbebf7f09f'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
@@ -25,9 +25,11 @@ def upgrade() -> None:
     sa.Column('dollar', sa.Integer(), server_default='0', nullable=False),
     sa.Column('bitcoin', sa.Integer(), server_default='0', nullable=False),
     sa.Column('ton', sa.Integer(), server_default='0', nullable=False),
+    sa.Column('user_id', sa.UUID(), nullable=False),
     sa.Column('id', sa.UUID(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
